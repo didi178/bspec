@@ -35,8 +35,10 @@ Start another fresh session in this directory. Do not resume the builder session
 
 ```text
 Start a new wallet experiment as the adversary. Use run ID 0002. Derive and save
-your test strategy before inspecting ../runs/0002/handoff/implementation. Do not
-read builder rationale or builder-authored tests until I explicitly reveal them.
+your test strategy before inspecting any handoff file. Then evaluate
+../runs/0002/handoff/implementation together with
+../runs/0002/handoff/assumptions.md. Do not read builder evidence or
+builder-authored tests until I explicitly reveal them.
 ```
 
 After initial findings are saved, use the shared [`reveal.prompt.md`](../../../agents/reveal.prompt.md), replacing `<run-id>` with `0002`.

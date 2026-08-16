@@ -13,6 +13,7 @@
 - **Builder isolation verified:** yes | no | uncertain
 - **Pre-reveal adversary strategy verified:** yes | no | uncertain
 - **Sanitized handoff used:** yes | no
+- **Declared assumptions included and hash-verified:** yes | no
 - **Reveal ordering verified:** yes | no | not performed
 - **Original artifacts preserved:** yes | no | uncertain
 
@@ -34,6 +35,7 @@
 ## Limitations
 
 - **Agent independence:**
+- **Role metadata verified before correlation analysis:** yes | no | not performed
 - **Environment and tool limitations:**
 - **Protocol deviations:**
 - **Remaining untested risks:**
