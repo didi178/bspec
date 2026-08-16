@@ -1,0 +1,14 @@
+=== arity / missing arguments (neither role tested) ===
+  deposit()            -> raises TypeError: Wallet.deposit() missing 1 required positional argument: 'amount'
+  deposit(1,2)         -> raises TypeError: Wallet.deposit() takes 2 positional arguments but 3 were given
+  deposit(amount=1)    -> Result(outcome=<Outcome.ACCEPTED: 'accepted'>, balance=1)
+  balance(1)           -> raises TypeError: Wallet.balance() takes 1 positional argument but 2 were given
+  balance after arity abuse: 1
+
+=== serialization of Wallet / Result (neither role tested) ===
+  pickle(Wallet) -> raises TypeError: cannot pickle '_thread.lock' object
+  pickle(Result) -> OK, Result(outcome=<Outcome.ACCEPTED: 'accepted'>, balance=6)
+  deepcopy(Wallet) -> raises TypeError: cannot pickle '_thread.lock' object
+
+=== subclassing Wallet (neither role tested) ===
+  Wallet subclass skipping super().__init__ -> AttributeError: 'Sub' object has no attribute '_lock'

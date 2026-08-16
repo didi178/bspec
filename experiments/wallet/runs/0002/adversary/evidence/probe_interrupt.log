@@ -1,0 +1,13 @@
+
+=== P10: async exception between mutation and Result construction ===
+balance before: 1000
+caller observed: KeyboardInterrupt
+balance after:  1500
+SPLIT OUTCOME: state advanced by 500 but the caller received an exception, not a Result. Lock released cleanly, so the wallet is not corrupted -- but the operation is not atomic from the caller's point of view.
+
+=== P11: concurrency stress -- 40 rounds of contended withdraw-to-zero ===
+rounds: 40, threads/round: 64, negative balances observed: 0, accounting mismatches: 0
+
+=== P12: concurrency stress -- mixed ops, conservation check ===
+rounds: 20, threads/round: 24, ops/thread: 500 (240,000 ops total), conservation violations: 0
+last round wall time: 6 ms
