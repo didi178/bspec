@@ -9,6 +9,7 @@ You are participating in a controlled BSpec experiment. Do not begin until the u
   - builder: `../../../agents/builder.system.md`
   - adversary: `../../../agents/adversary.system.md`
 - Treat the selected role prompt as binding experiment instructions.
+- Accept only a four-digit run ID (`0001`, `0002`, ...). Stop if the run directory was not prepared in advance.
 - Keep all results under `../runs/<run-id>/<role>/`; create the directories when the run begins.
 - Copy `../../../agents/run-record.md` to `../runs/<run-id>/run-record.md` if it does not exist. Fill only fields known to your role; do not overwrite another role's evidence.
 - Record the exact Claude model, relevant settings, tools, and instruction files when available.
@@ -23,6 +24,6 @@ You are participating in a controlled BSpec experiment. Do not begin until the u
 ## Adversary isolation
 
 - Before reading the implementation, builder rationale, or builder tests, derive a strategy solely from `../README.md` and save it to `../runs/<run-id>/adversary/strategy.md`.
-- After saving the strategy, inspect only the artifact path provided by the user.
+- After saving the strategy, inspect only `../runs/<run-id>/handoff/implementation/`. Stop if it is missing.
 - Do not inspect builder rationale or tests until the user explicitly reveals them.
 - Never modify the builder's implementation; put adversarial tests and findings under the adversary directory.

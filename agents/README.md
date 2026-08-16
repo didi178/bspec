@@ -8,6 +8,9 @@ This directory contains minimal starting prompts and records for BSpec experimen
 - [`adversary.system.md`](adversary.system.md) — system prompt for independently challenging the implementation.
 - [`coordinator.system.md`](coordinator.system.md) — system prompt for preserving separation and recording experiment outcomes.
 - [`run-record.md`](run-record.md) — copyable template for documenting a run.
+- [`reveal.prompt.md`](reveal.prompt.md) — shared prompt for the controlled post-reveal stage.
+- [`coordinator-checklist.md`](coordinator-checklist.md) — evidence-based completion checklist.
+- [`coordinator-report.md`](coordinator-report.md) — copyable final coordinator report.
 
 ## Suggested sequence
 
