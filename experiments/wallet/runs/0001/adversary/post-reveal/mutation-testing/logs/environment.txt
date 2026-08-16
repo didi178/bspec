@@ -1,0 +1,9 @@
+node: v25.5.0
+npm: 11.8.0
+stryker: 10.0.0
+platform: Darwin 25.5.0 arm64
+cpus: 10
+
+--- npm ls --depth=0 ---
+mutation-harness@0.0.0 /private/tmp/claude-501/-Users-dmitrystepanov-Documents-Projects-bspec-experiments-wallet-claude/***/scratchpad/mutws/proj
+└── @stryker-mutator/core@10.0.0

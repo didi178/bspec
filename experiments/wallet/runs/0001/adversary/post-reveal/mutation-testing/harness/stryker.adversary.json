@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "_comment": "Run 0001 post-reveal mutation testing — ADVERSARY suite. Identical to stryker.builder.json except commandRunner.command, jsonReporter.fileName and tempDirName.",
+  "packageManager": "npm",
+  "testRunner": "command",
+  "commandRunner": { "command": "node --test \"adversary/tests/*.test.ts\"" },
+  "mutate": ["builder/implementation/wallet.ts"],
+  "ignorePatterns": ["reports/**", "logs/**", ".stryker-tmp-*/**"],
+  "coverageAnalysis": "off",
+  "timeoutMS": 30000,
+  "timeoutFactor": 4,
+  "concurrency": 8,
+  "disableTypeChecks": false,
+  "reporters": ["json", "clear-text", "progress"],
+  "jsonReporter": { "fileName": "reports/adversary/mutation-report.json" },
+  "tempDirName": ".stryker-tmp-adversary",
+  "cleanTempDir": true
+}

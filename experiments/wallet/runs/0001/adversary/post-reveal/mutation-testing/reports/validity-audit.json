@@ -1,0 +1,798 @@
+{
+  "total": 88,
+  "invalid": 0,
+  "results": [
+    {
+      "id": "7",
+      "mutator": "ConditionalExpression",
+      "line": 55,
+      "replacedText": "typeof amount === \"number\"",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "3",
+      "mutator": "ConditionalExpression",
+      "line": 54,
+      "replacedText": "typeof amount === \"bigint\"",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "0",
+      "mutator": "ArithmeticOperator",
+      "line": 50,
+      "replacedText": "(1n << 63n) - 1n",
+      "replacement": "(1n << 63n) + 1n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "5",
+      "mutator": "StringLiteral",
+      "line": 54,
+      "replacedText": "\"bigint\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "1",
+      "mutator": "BlockStatement",
+      "line": 53,
+      "replacedText": "{\n  if (typeof amount === \"bigint\") return amount;\n  if (typeof amount === \"number\") {\n    // Rejects NaN, Infinity, and any non-integer or precision-losing magnitude.\n    if (!Number.isSafeInteger(amount)) return null;\n    return BigInt(amount);\n  }\n  return null;\n}",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "2",
+      "mutator": "ConditionalExpression",
+      "line": 54,
+      "replacedText": "typeof amount === \"bigint\"",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "6",
+      "mutator": "ConditionalExpression",
+      "line": 55,
+      "replacedText": "typeof amount === \"number\"",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "4",
+      "mutator": "EqualityOperator",
+      "line": 54,
+      "replacedText": "typeof amount === \"bigint\"",
+      "replacement": "typeof amount !== \"bigint\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "9",
+      "mutator": "StringLiteral",
+      "line": 55,
+      "replacedText": "\"number\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "11",
+      "mutator": "BooleanLiteral",
+      "line": 57,
+      "replacedText": "!Number.isSafeInteger(amount)",
+      "replacement": "Number.isSafeInteger(amount)",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "10",
+      "mutator": "BlockStatement",
+      "line": 55,
+      "replacedText": "{\n    // Rejects NaN, Infinity, and any non-integer or precision-losing magnitude.\n    if (!Number.isSafeInteger(amount)) return null;\n    return BigInt(amount);\n  }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "8",
+      "mutator": "EqualityOperator",
+      "line": 55,
+      "replacedText": "typeof amount === \"number\"",
+      "replacement": "typeof amount !== \"number\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "13",
+      "mutator": "ConditionalExpression",
+      "line": 57,
+      "replacedText": "!Number.isSafeInteger(amount)",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "12",
+      "mutator": "ConditionalExpression",
+      "line": 57,
+      "replacedText": "!Number.isSafeInteger(amount)",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "15",
+      "mutator": "LogicalOperator",
+      "line": 68,
+      "replacedText": "options.maxBalance ?? DEFAULT_MAX_BALANCE",
+      "replacement": "options.maxBalance && DEFAULT_MAX_BALANCE",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "14",
+      "mutator": "BlockStatement",
+      "line": 67,
+      "replacedText": "{\n    const max = options.maxBalance ?? DEFAULT_MAX_BALANCE;\n    const initial = options.initialBalance ?? 0n;\n    if (typeof max !== \"bigint\" || max < 0n) {\n      throw new RangeError(\"maxBalance must be a non-negative bigint\");\n    }\n    if (typeof initial !== \"bigint\" || initial < 0n) {\n      throw new RangeError(\"initialBalance must be a non-negative bigint\");\n    }\n    if (initial > max) {\n      throw new RangeError(\"initialBalance must not exceed maxBalance\");\n    }\n    this.#balance = initial;\n    this.#maxBalance = max;\n  }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "16",
+      "mutator": "LogicalOperator",
+      "line": 69,
+      "replacedText": "options.initialBalance ?? 0n",
+      "replacement": "options.initialBalance && 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "19",
+      "mutator": "LogicalOperator",
+      "line": 70,
+      "replacedText": "typeof max !== \"bigint\" || max < 0n",
+      "replacement": "typeof max !== \"bigint\" && max < 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "20",
+      "mutator": "ConditionalExpression",
+      "line": 70,
+      "replacedText": "typeof max !== \"bigint\"",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "21",
+      "mutator": "EqualityOperator",
+      "line": 70,
+      "replacedText": "typeof max !== \"bigint\"",
+      "replacement": "typeof max === \"bigint\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "17",
+      "mutator": "ConditionalExpression",
+      "line": 70,
+      "replacedText": "typeof max !== \"bigint\" || max < 0n",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "18",
+      "mutator": "ConditionalExpression",
+      "line": 70,
+      "replacedText": "typeof max !== \"bigint\" || max < 0n",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "22",
+      "mutator": "StringLiteral",
+      "line": 70,
+      "replacedText": "\"bigint\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "23",
+      "mutator": "ConditionalExpression",
+      "line": 70,
+      "replacedText": "max < 0n",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "32",
+      "mutator": "ConditionalExpression",
+      "line": 73,
+      "replacedText": "typeof initial !== \"bigint\"",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "25",
+      "mutator": "EqualityOperator",
+      "line": 70,
+      "replacedText": "max < 0n",
+      "replacement": "max >= 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "30",
+      "mutator": "ConditionalExpression",
+      "line": 73,
+      "replacedText": "typeof initial !== \"bigint\" || initial < 0n",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "24",
+      "mutator": "EqualityOperator",
+      "line": 70,
+      "replacedText": "max < 0n",
+      "replacement": "max <= 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "28",
+      "mutator": "StringLiteral",
+      "line": 71,
+      "replacedText": "\"maxBalance must be a non-negative bigint\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "26",
+      "mutator": "BlockStatement",
+      "line": 70,
+      "replacedText": "{\n      throw new RangeError(\"maxBalance must be a non-negative bigint\");\n    }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "29",
+      "mutator": "ConditionalExpression",
+      "line": 73,
+      "replacedText": "typeof initial !== \"bigint\" || initial < 0n",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "31",
+      "mutator": "LogicalOperator",
+      "line": 73,
+      "replacedText": "typeof initial !== \"bigint\" || initial < 0n",
+      "replacement": "typeof initial !== \"bigint\" && initial < 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "35",
+      "mutator": "ConditionalExpression",
+      "line": 73,
+      "replacedText": "initial < 0n",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "34",
+      "mutator": "StringLiteral",
+      "line": 73,
+      "replacedText": "\"bigint\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "37",
+      "mutator": "EqualityOperator",
+      "line": 73,
+      "replacedText": "initial < 0n",
+      "replacement": "initial >= 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "33",
+      "mutator": "EqualityOperator",
+      "line": 73,
+      "replacedText": "typeof initial !== \"bigint\"",
+      "replacement": "typeof initial === \"bigint\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "40",
+      "mutator": "StringLiteral",
+      "line": 74,
+      "replacedText": "\"initialBalance must be a non-negative bigint\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "36",
+      "mutator": "EqualityOperator",
+      "line": 73,
+      "replacedText": "initial < 0n",
+      "replacement": "initial <= 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "41",
+      "mutator": "ConditionalExpression",
+      "line": 76,
+      "replacedText": "initial > max",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "38",
+      "mutator": "BlockStatement",
+      "line": 73,
+      "replacedText": "{\n      throw new RangeError(\"initialBalance must be a non-negative bigint\");\n    }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "42",
+      "mutator": "ConditionalExpression",
+      "line": 76,
+      "replacedText": "initial > max",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "44",
+      "mutator": "EqualityOperator",
+      "line": 76,
+      "replacedText": "initial > max",
+      "replacement": "initial <= max",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "43",
+      "mutator": "EqualityOperator",
+      "line": 76,
+      "replacedText": "initial > max",
+      "replacement": "initial >= max",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "48",
+      "mutator": "BlockStatement",
+      "line": 84,
+      "replacedText": "{\n    return this.#balance;\n  }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "45",
+      "mutator": "BlockStatement",
+      "line": 76,
+      "replacedText": "{\n      throw new RangeError(\"initialBalance must not exceed maxBalance\");\n    }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "49",
+      "mutator": "BlockStatement",
+      "line": 89,
+      "replacedText": "{\n    return this.#maxBalance;\n  }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "47",
+      "mutator": "StringLiteral",
+      "line": 77,
+      "replacedText": "\"initialBalance must not exceed maxBalance\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "50",
+      "mutator": "BlockStatement",
+      "line": 97,
+      "replacedText": "{\n    const value = toIntAmount(amount);\n    if (value === null) return this.#reject(\"INVALID_AMOUNT\");\n    if (value <= 0n) return this.#reject(\"NON_POSITIVE_AMOUNT\");\n    if (value > this.#maxBalance - this.#balance) {\n      return this.#reject(\"BALANCE_LIMIT_EXCEEDED\");\n    }\n    this.#balance += value;\n    return { ok: true, balance: this.#balance };\n  }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "51",
+      "mutator": "ConditionalExpression",
+      "line": 99,
+      "replacedText": "value === null",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "53",
+      "mutator": "EqualityOperator",
+      "line": 99,
+      "replacedText": "value === null",
+      "replacement": "value !== null",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "52",
+      "mutator": "ConditionalExpression",
+      "line": 99,
+      "replacedText": "value === null",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "58",
+      "mutator": "EqualityOperator",
+      "line": 100,
+      "replacedText": "value <= 0n",
+      "replacement": "value > 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "55",
+      "mutator": "ConditionalExpression",
+      "line": 100,
+      "replacedText": "value <= 0n",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "56",
+      "mutator": "ConditionalExpression",
+      "line": 100,
+      "replacedText": "value <= 0n",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "54",
+      "mutator": "StringLiteral",
+      "line": 99,
+      "replacedText": "\"INVALID_AMOUNT\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "57",
+      "mutator": "EqualityOperator",
+      "line": 100,
+      "replacedText": "value <= 0n",
+      "replacement": "value < 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "59",
+      "mutator": "StringLiteral",
+      "line": 100,
+      "replacedText": "\"NON_POSITIVE_AMOUNT\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "62",
+      "mutator": "EqualityOperator",
+      "line": 101,
+      "replacedText": "value > this.#maxBalance - this.#balance",
+      "replacement": "value >= this.#maxBalance - this.#balance",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "64",
+      "mutator": "ArithmeticOperator",
+      "line": 101,
+      "replacedText": "this.#maxBalance - this.#balance",
+      "replacement": "this.#maxBalance + this.#balance",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "60",
+      "mutator": "ConditionalExpression",
+      "line": 101,
+      "replacedText": "value > this.#maxBalance - this.#balance",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "61",
+      "mutator": "ConditionalExpression",
+      "line": 101,
+      "replacedText": "value > this.#maxBalance - this.#balance",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "63",
+      "mutator": "EqualityOperator",
+      "line": 101,
+      "replacedText": "value > this.#maxBalance - this.#balance",
+      "replacement": "value <= this.#maxBalance - this.#balance",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "66",
+      "mutator": "StringLiteral",
+      "line": 102,
+      "replacedText": "\"BALANCE_LIMIT_EXCEEDED\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "65",
+      "mutator": "BlockStatement",
+      "line": 101,
+      "replacedText": "{\n      return this.#reject(\"BALANCE_LIMIT_EXCEEDED\");\n    }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "67",
+      "mutator": "AssignmentOperator",
+      "line": 104,
+      "replacedText": "this.#balance += value",
+      "replacement": "this.#balance -= value",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "69",
+      "mutator": "BooleanLiteral",
+      "line": 105,
+      "replacedText": "true",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "68",
+      "mutator": "ObjectLiteral",
+      "line": 105,
+      "replacedText": "{ ok: true, balance: this.#balance }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "70",
+      "mutator": "BlockStatement",
+      "line": 113,
+      "replacedText": "{\n    const value = toIntAmount(amount);\n    if (value === null) return this.#reject(\"INVALID_AMOUNT\");\n    if (value <= 0n) return this.#reject(\"NON_POSITIVE_AMOUNT\");\n    if (value > this.#balance) return this.#reject(\"INSUFFICIENT_FUNDS\");\n    this.#balance -= value;\n    return { ok: true, balance: this.#balance };\n  }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "71",
+      "mutator": "ConditionalExpression",
+      "line": 115,
+      "replacedText": "value === null",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "72",
+      "mutator": "ConditionalExpression",
+      "line": 115,
+      "replacedText": "value === null",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "73",
+      "mutator": "EqualityOperator",
+      "line": 115,
+      "replacedText": "value === null",
+      "replacement": "value !== null",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "74",
+      "mutator": "StringLiteral",
+      "line": 115,
+      "replacedText": "\"INVALID_AMOUNT\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "75",
+      "mutator": "ConditionalExpression",
+      "line": 116,
+      "replacedText": "value <= 0n",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "78",
+      "mutator": "EqualityOperator",
+      "line": 116,
+      "replacedText": "value <= 0n",
+      "replacement": "value > 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "77",
+      "mutator": "EqualityOperator",
+      "line": 116,
+      "replacedText": "value <= 0n",
+      "replacement": "value < 0n",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "79",
+      "mutator": "StringLiteral",
+      "line": 116,
+      "replacedText": "\"NON_POSITIVE_AMOUNT\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "76",
+      "mutator": "ConditionalExpression",
+      "line": 116,
+      "replacedText": "value <= 0n",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "81",
+      "mutator": "ConditionalExpression",
+      "line": 117,
+      "replacedText": "value > this.#balance",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "80",
+      "mutator": "ConditionalExpression",
+      "line": 117,
+      "replacedText": "value > this.#balance",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "82",
+      "mutator": "EqualityOperator",
+      "line": 117,
+      "replacedText": "value > this.#balance",
+      "replacement": "value >= this.#balance",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "84",
+      "mutator": "StringLiteral",
+      "line": 117,
+      "replacedText": "\"INSUFFICIENT_FUNDS\"",
+      "replacement": "\"\"",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "83",
+      "mutator": "EqualityOperator",
+      "line": 117,
+      "replacedText": "value > this.#balance",
+      "replacement": "value <= this.#balance",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "85",
+      "mutator": "AssignmentOperator",
+      "line": 118,
+      "replacedText": "this.#balance -= value",
+      "replacement": "this.#balance += value",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "86",
+      "mutator": "ObjectLiteral",
+      "line": 119,
+      "replacedText": "{ ok: true, balance: this.#balance }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "87",
+      "mutator": "BooleanLiteral",
+      "line": 119,
+      "replacedText": "true",
+      "replacement": "false",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "89",
+      "mutator": "ObjectLiteral",
+      "line": 124,
+      "replacedText": "{ ok: false, error, balance: this.#balance }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "88",
+      "mutator": "BlockStatement",
+      "line": 122,
+      "replacedText": "{\n    // State is intentionally left untouched here.\n    return { ok: false, error, balance: this.#balance };\n  }",
+      "replacement": "{}",
+      "loads": true,
+      "err": ""
+    },
+    {
+      "id": "90",
+      "mutator": "BooleanLiteral",
+      "line": 124,
+      "replacedText": "false",
+      "replacement": "true",
+      "loads": true,
+      "err": ""
+    }
+  ]
+}

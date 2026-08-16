@@ -1,0 +1,23 @@
+✔ new wallet starts at zero by default (1.069ms)
+✔ deposit increases balance by exactly the amount (0.626625ms)
+✔ withdraw decreases balance by exactly the amount (0.050666ms)
+✔ balance never becomes negative; overdraw is rejected and state unchanged (0.052083ms)
+✔ withdrawing the exact balance is allowed and lands on zero (0.038791ms)
+✔ zero amount is rejected as NON_POSITIVE_AMOUNT (deposit and withdraw) (0.035416ms)
+✔ negative amount is rejected as NON_POSITIVE_AMOUNT (0.036667ms)
+✔ invalid numeric amounts are rejected as INVALID_AMOUNT without mutation (0.063291ms)
+✔ non-numeric amounts are rejected as INVALID_AMOUNT (0.049042ms)
+✔ safe-integer number amounts are accepted and exact (0.089583ms)
+✔ extremely large deposit that would exceed maxBalance is rejected (0.048833ms)
+✔ no silent overflow: huge bigint near the default ceiling is bounded (0.037ms)
+✔ repeated deposits each apply independently (no idempotency) (0.0365ms)
+✔ rejected operation returns the current (unchanged) balance (0.027708ms)
+✔ sequential interleaving of mixed operations keeps the invariant (0.060209ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.477542

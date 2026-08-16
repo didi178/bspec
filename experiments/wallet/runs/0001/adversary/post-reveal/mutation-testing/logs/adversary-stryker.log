@@ -1,0 +1,46 @@
+[32m09:24:40 (5979) INFO ProjectReader[39m Found 1 of 10 file(s) to be mutated.
+[32m09:24:40 (5979) INFO Instrumenter[39m Instrumented 1 source file(s) with 88 mutant(s)
+[32m09:24:40 (5979) INFO ConcurrencyTokenProvider[39m Creating 8 test runner process(es).
+[32m09:24:40 (5979) INFO BroadcastReporter[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+[32m09:24:40 (5979) INFO DryRunExecutor[39m Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+[32m09:24:41 (5979) INFO DryRunExecutor[39m Initial test run succeeded. Ran 1 tests in 0 seconds (net 273 ms, overhead 1 ms).
+Mutation testing 73% (elapsed: <1m, remaining: <1m) 65/88 tested (5 survived, 0 timed out)
+
+All tests
+  ✓ All tests (killed 83)
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:55:7
+-     if (typeof amount === "number") {
++     if (true) {
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:70:36
+-       if (typeof max !== "bigint" || max < 0n) {
++       if (typeof max !== "bigint" || false) {
+
+[Survived] StringLiteral
+builder/implementation/wallet.ts:71:28
+-         throw new RangeError("maxBalance must be a non-negative bigint");
++         throw new RangeError("");
+
+[Survived] StringLiteral
+builder/implementation/wallet.ts:74:28
+-         throw new RangeError("initialBalance must be a non-negative bigint");
++         throw new RangeError("");
+
+[Survived] StringLiteral
+builder/implementation/wallet.ts:77:28
+-         throw new RangeError("initialBalance must not exceed maxBalance");
++         throw new RangeError("");
+
+Ran 1.00 tests per mutant on average.
+-----------|------------------|----------|-----------|------------|----------|----------|
+           | % Mutation score |          |           |            |          |          |
+File       |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+-----------|--------|---------|----------|-----------|------------|----------|----------|
+All files  |  94.32 |   94.32 |       83 |         0 |          5 |        0 |        0 |
+ wallet.ts |  94.32 |   94.32 |       83 |         0 |          5 |        0 |        0 |
+-----------|--------|---------|----------|-----------|------------|----------|----------|
+[32m09:24:53 (5979) INFO JsonReporter[39m Your report can be found at: file:///private/tmp/claude-501/-Users-dmitrystepanov-Documents-Projects-bspec-experiments-wallet-claude/d845ec99-1aa1-460b-a562-522e009f5c2b/scratchpad/mutws/proj/reports/adversary/mutation-report.json
+[32m09:24:53 (5979) INFO MutationTestExecutor[39m Done in 13 seconds.

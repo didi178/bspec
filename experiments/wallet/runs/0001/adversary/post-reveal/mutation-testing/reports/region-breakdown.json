@@ -1,0 +1,123 @@
+{
+  "regions": {
+    "DEFAULT_MAX_BALANCE constant": {
+      "total": 1,
+      "both": 0,
+      "builder-only": 0,
+      "adversary-only": 1,
+      "neither": 0,
+      "bKill": 0,
+      "aKill": 1
+    },
+    "toIntAmount() — amount normalization": {
+      "total": 13,
+      "both": 12,
+      "builder-only": 0,
+      "adversary-only": 0,
+      "neither": 1,
+      "bKill": 12,
+      "aKill": 12
+    },
+    "constructor + option validation": {
+      "total": 31,
+      "both": 14,
+      "builder-only": 0,
+      "adversary-only": 13,
+      "neither": 4,
+      "bKill": 14,
+      "aKill": 27
+    },
+    "balance() reader": {
+      "total": 1,
+      "both": 1,
+      "builder-only": 0,
+      "adversary-only": 0,
+      "neither": 0,
+      "bKill": 1,
+      "aKill": 1
+    },
+    "maxBalance getter": {
+      "total": 1,
+      "both": 0,
+      "builder-only": 0,
+      "adversary-only": 1,
+      "neither": 0,
+      "bKill": 0,
+      "aKill": 1
+    },
+    "deposit()": {
+      "total": 20,
+      "both": 20,
+      "builder-only": 0,
+      "adversary-only": 0,
+      "neither": 0,
+      "bKill": 20,
+      "aKill": 20
+    },
+    "withdraw()": {
+      "total": 18,
+      "both": 16,
+      "builder-only": 0,
+      "adversary-only": 2,
+      "neither": 0,
+      "bKill": 16,
+      "aKill": 18
+    },
+    "#reject()": {
+      "total": 3,
+      "both": 3,
+      "builder-only": 0,
+      "adversary-only": 0,
+      "neither": 0,
+      "bKill": 3,
+      "aKill": 3
+    }
+  },
+  "mutators": {
+    "ArithmeticOperator": {
+      "total": 2,
+      "b": 1,
+      "a": 2
+    },
+    "AssignmentOperator": {
+      "total": 2,
+      "b": 2,
+      "a": 2
+    },
+    "BlockStatement": {
+      "total": 12,
+      "b": 8,
+      "a": 12
+    },
+    "BooleanLiteral": {
+      "total": 4,
+      "b": 4,
+      "a": 4
+    },
+    "ConditionalExpression": {
+      "total": 28,
+      "b": 19,
+      "a": 26
+    },
+    "EqualityOperator": {
+      "total": 20,
+      "b": 18,
+      "a": 20
+    },
+    "LogicalOperator": {
+      "total": 4,
+      "b": 2,
+      "a": 4
+    },
+    "ObjectLiteral": {
+      "total": 3,
+      "b": 3,
+      "a": 3
+    },
+    "StringLiteral": {
+      "total": 13,
+      "b": 9,
+      "a": 10
+    }
+  }
+}
