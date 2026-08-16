@@ -8,9 +8,10 @@ Install Claude Code and sign in according to the [official Claude Code documenta
 
 ## Builder
 
-Start a fresh Claude Code session:
+Prepare the next run from the repository root, then start a fresh Claude Code session:
 
 ```bash
+./experiments/wallet/run.sh prepare-run 0002
 cd experiments/wallet/claude
 claude
 ```
@@ -18,20 +19,27 @@ claude
 Then send:
 
 ```text
-Start a new wallet experiment as the builder. Use run ID <run-id>. Follow the
+Start a new wallet experiment as the builder. Use run ID 0002. Follow the
 local CLAUDE.md and do not inspect any output from an adversary run.
 ```
 
 ## Adversary
 
+After the builder finishes, prepare the sanitized handoff from the repository root:
+
+```bash
+./experiments/wallet/run.sh prepare-handoff 0002
+```
+
 Start another fresh session in this directory. Do not resume the builder session.
 
 ```text
-Start a new wallet experiment as the adversary. Use run ID <run-id>. The builder
-artifact is at <path>. Derive and save your test strategy before inspecting the
-implementation. Do not read builder rationale or builder-authored tests until I
-explicitly reveal them.
+Start a new wallet experiment as the adversary. Use run ID 0002. Derive and save
+your test strategy before inspecting ../runs/0002/handoff/implementation. Do not
+read builder rationale or builder-authored tests until I explicitly reveal them.
 ```
+
+After initial findings are saved, use the shared [`reveal.prompt.md`](../../../agents/reveal.prompt.md), replacing `<run-id>` with `0002`.
 
 ## Verify instruction loading
 
