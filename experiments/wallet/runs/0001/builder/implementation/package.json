@@ -1,0 +1,13 @@
+{
+  "name": "bspec-wallet-run0001-builder",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal wallet implementation for BSpec wallet experiment run 0001 (builder).",
+  "scripts": {
+    "test": "node --test \"../tests/*.test.ts\""
+  },
+  "engines": {
+    "node": ">=23"
+  }
+}

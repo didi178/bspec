@@ -1,0 +1,56 @@
+
+=== Resolved-by-implementation: the unresolved questions ===
+  currency                : ABSENT — no currency field, code, or unit anywhere
+  numeric representation  : bigint minor units; balance() typeof = bigint
+  smallest unit           : 1 minor unit (fractions rejected as INVALID_AMOUNT)
+  authorization           : ABSENT — no owner, caller, or credential; any holder may withdraw
+  idempotency             : ABSENT — no request id; repeats compound
+  persistence             : ABSENT — in-memory only; no save/load/serialize
+  concurrency             : UNDECLARED — sync methods are atomic by construction, not by statement
+  error semantics         : SPLIT — domain errors are tagged results; config errors THROW RangeError
+  balance ceiling         : 9223372036854775807n (= 2^63-1) — invented, not in the spec
+  history / audit trail   : ABSENT — no transaction log
+  transfer between wallets: ABSENT — no transfer operation
+
+=== Error-code taxonomy actually observed ===
+  deposit(0n)                                          -> {ok: false, error: "NON_POSITIVE_AMOUNT", balance: 100n}
+  deposit(-1n)                                         -> {ok: false, error: "NON_POSITIVE_AMOUNT", balance: 100n}
+  deposit('x')                                         -> {ok: false, error: "INVALID_AMOUNT", balance: 100n}
+  deposit(2n**63n)                                     -> {ok: false, error: "BALANCE_LIMIT_EXCEEDED", balance: 100n}
+  withdraw(0n)                                         -> {ok: false, error: "NON_POSITIVE_AMOUNT", balance: 100n}
+  withdraw(-1n)                                        -> {ok: false, error: "NON_POSITIVE_AMOUNT", balance: 100n}
+  withdraw(101n)  [insufficient]                       -> {ok: false, error: "INSUFFICIENT_FUNDS", balance: 100n}
+  withdraw(-1n) on a ZERO balance                      -> {ok: false, error: "NON_POSITIVE_AMOUNT", balance: 0n}
+
+=== Misuse / robustness probes ===
+  detached method: const {deposit} = w; deposit(1n)    -> THROWS TypeError: Cannot read properties of undefined (reading '#maxBalance')
+  borrowed method: Wallet.prototype.deposit.call({}, 1n) -> THROWS TypeError: Cannot read private member #maxBalance from an object whose class did not declare it
+  Object.create(Wallet.prototype).balance()            -> THROWS TypeError: Cannot read private member #balance from an object whose class did not declare it
+  Reflect.ownKeys(instance)                            -> {}
+  JSON.stringify(instance)                             -> "{}"
+  JSON.stringify(deposit result)                       -> THROWS TypeError: Do not know how to serialize a BigInt
+  structuredClone(instance) keys                       -> {}
+  String(balance())                                    -> "5"
+  balance() * 1.5                                      -> THROWS TypeError: Cannot mix BigInt and other types, use explicit conversions
+  new Wallet(null)                                     -> THROWS TypeError: Cannot read properties of null (reading 'maxBalance')
+  new Wallet('nope')                                   -> 0n
+  new Wallet({initialBalance: 100})  [number]          -> THROWS RangeError: initialBalance must be a non-negative bigint
+  new Wallet({maxBalance: 100})      [number]          -> THROWS RangeError: maxBalance must be a non-negative bigint
+  new Wallet({intialBalance: 500n})  [typo]            -> 0n
+  new Wallet({initialBalance: undefined})              -> 0n
+  new Wallet({maxBalance: 0n}).deposit(1n)             -> {ok: false, error: "BALANCE_LIMIT_EXCEEDED", balance: 0n}
+
+=== Subclass override — reported balance can lie, real state cannot ===
+  Liar.balance()  [overridden reporter]                -> 1000000000000n
+  Liar.withdraw(6n)  [real state still governs]        -> {ok: false, error: "INSUFFICIENT_FUNDS", balance: 5n}
+  Liar.withdraw(5n)  [real state still governs]        -> {ok: true, balance: 0n}
+
+=== Prototype-chain option lookup (FINDING A-1) ===
+  new Wallet()  with Object.prototype.initialBalance=1000n -> 1000n
+  new Wallet()  after cleanup                          -> 0n
+
+=== Large-value handling ===
+  deposit(10n**100n) on default wallet                 -> {ok: false, error: "BALANCE_LIMIT_EXCEEDED", balance: 0n}
+  maxBalance 10n**60n, deposit 10n**60n                -> 1000000000000000000000000000000000000000000000000000000000000n
+  Number.MAX_SAFE_INTEGER as a number amount           -> {ok: true, balance: 9007199254740991n}
+  Number.MAX_SAFE_INTEGER + 1 as a number amount       -> {ok: false, error: "INVALID_AMOUNT", balance: 0n}

@@ -1,0 +1,99 @@
+{
+  "corpusSize": 1188,
+  "findings": [
+    {
+      "id": "6",
+      "mutator": "ConditionalExpression",
+      "line": 55,
+      "replaced": "typeof amount === \"number\"",
+      "replacement": "true",
+      "observableDiffs": 0,
+      "sample": [],
+      "verdict": "SUSPECTED_EQUIVALENT"
+    },
+    {
+      "id": "23",
+      "mutator": "ConditionalExpression",
+      "line": 70,
+      "replaced": "max < 0n",
+      "replacement": "false",
+      "observableDiffs": 3,
+      "sample": [
+        {
+          "original": "ctor {\"maxBalance\":\"-1n\"} => THROW RangeError: maxBalance must be a non-negative bigint",
+          "mutant": "ctor {\"maxBalance\":\"-1n\"} => THROW RangeError: initialBalance must not exceed maxBalance"
+        },
+        {
+          "original": "ctor {\"initialBalance\":\"-1n\",\"maxBalance\":\"-1n\"} => THROW RangeError: maxBalance must be a non-negative bigint",
+          "mutant": "ctor {\"initialBalance\":\"-1n\",\"maxBalance\":\"-1n\"} => THROW RangeError: initialBalance must be a non-negative bigint"
+        },
+        {
+          "original": "ctor {\"maxBalance\":\"-5n\",\"initialBalance\":\"3n\"} => THROW RangeError: maxBalance must be a non-negative bigint",
+          "mutant": "ctor {\"maxBalance\":\"-5n\",\"initialBalance\":\"3n\"} => THROW RangeError: initialBalance must not exceed maxBalance"
+        }
+      ],
+      "verdict": "GENUINE_message-text-only"
+    },
+    {
+      "id": "28",
+      "mutator": "StringLiteral",
+      "line": 71,
+      "replaced": "\"maxBalance must be a non-negative bigint\"",
+      "replacement": "\"\"",
+      "observableDiffs": 5,
+      "sample": [
+        {
+          "original": "ctor {\"maxBalance\":\"-1n\"} => THROW RangeError: maxBalance must be a non-negative bigint",
+          "mutant": "ctor {\"maxBalance\":\"-1n\"} => THROW RangeError: "
+        },
+        {
+          "original": "ctor {\"initialBalance\":\"-1n\",\"maxBalance\":\"-1n\"} => THROW RangeError: maxBalance must be a non-negative bigint",
+          "mutant": "ctor {\"initialBalance\":\"-1n\",\"maxBalance\":\"-1n\"} => THROW RangeError: "
+        },
+        {
+          "original": "ctor {\"maxBalance\":\"-5n\",\"initialBalance\":\"3n\"} => THROW RangeError: maxBalance must be a non-negative bigint",
+          "mutant": "ctor {\"maxBalance\":\"-5n\",\"initialBalance\":\"3n\"} => THROW RangeError: "
+        }
+      ],
+      "verdict": "GENUINE_message-text-only"
+    },
+    {
+      "id": "40",
+      "mutator": "StringLiteral",
+      "line": 74,
+      "replaced": "\"initialBalance must be a non-negative bigint\"",
+      "replacement": "\"\"",
+      "observableDiffs": 3,
+      "sample": [
+        {
+          "original": "ctor {\"initialBalance\":\"-1n\"} => THROW RangeError: initialBalance must be a non-negative bigint",
+          "mutant": "ctor {\"initialBalance\":\"-1n\"} => THROW RangeError: "
+        },
+        {
+          "original": "ctor {\"initialBalance\":1} => THROW RangeError: initialBalance must be a non-negative bigint",
+          "mutant": "ctor {\"initialBalance\":1} => THROW RangeError: "
+        },
+        {
+          "original": "ctor {\"initialBalance\":\"x\"} => THROW RangeError: initialBalance must be a non-negative bigint",
+          "mutant": "ctor {\"initialBalance\":\"x\"} => THROW RangeError: "
+        }
+      ],
+      "verdict": "GENUINE_message-text-only"
+    },
+    {
+      "id": "47",
+      "mutator": "StringLiteral",
+      "line": 77,
+      "replaced": "\"initialBalance must not exceed maxBalance\"",
+      "replacement": "\"\"",
+      "observableDiffs": 1,
+      "sample": [
+        {
+          "original": "ctor {\"initialBalance\":\"10n\",\"maxBalance\":\"5n\"} => THROW RangeError: initialBalance must not exceed maxBalance",
+          "mutant": "ctor {\"initialBalance\":\"10n\",\"maxBalance\":\"5n\"} => THROW RangeError: "
+        }
+      ],
+      "verdict": "GENUINE_message-text-only"
+    }
+  ]
+}

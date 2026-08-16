@@ -1,0 +1,138 @@
+[32m09:24:26 (5526) INFO ProjectReader[39m Found 1 of 10 file(s) to be mutated.
+[32m09:24:26 (5526) INFO Instrumenter[39m Instrumented 1 source file(s) with 88 mutant(s)
+[32m09:24:26 (5526) INFO ConcurrencyTokenProvider[39m Creating 8 test runner process(es).
+[32m09:24:26 (5526) INFO BroadcastReporter[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+[32m09:24:26 (5526) INFO DryRunExecutor[39m Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+[32m09:24:26 (5526) INFO DryRunExecutor[39m Initial test run succeeded. Ran 1 tests in 0 seconds (net 180 ms, overhead 0 ms).
+
+All tests
+  ✓ All tests (killed 66)
+
+[Survived] ArithmeticOperator
+builder/implementation/wallet.ts:50:29
+-   const DEFAULT_MAX_BALANCE = (1n << 63n) - 1n; // 9223372036854775807
++   const DEFAULT_MAX_BALANCE = (1n << 63n) + 1n; // 9223372036854775807
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:55:7
+-     if (typeof amount === "number") {
++     if (true) {
+
+[Survived] LogicalOperator
+builder/implementation/wallet.ts:70:9
+-       if (typeof max !== "bigint" || max < 0n) {
++       if (typeof max !== "bigint" && max < 0n) {
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:70:9
+-       if (typeof max !== "bigint" || max < 0n) {
++       if (false || max < 0n) {
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:70:9
+-       if (typeof max !== "bigint" || max < 0n) {
++       if (false) {
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:70:36
+-       if (typeof max !== "bigint" || max < 0n) {
++       if (typeof max !== "bigint" || false) {
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:73:9
+-       if (typeof initial !== "bigint" || initial < 0n) {
++       if (false || initial < 0n) {
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:73:9
+-       if (typeof initial !== "bigint" || initial < 0n) {
++       if (false) {
+
+[Survived] EqualityOperator
+builder/implementation/wallet.ts:70:36
+-       if (typeof max !== "bigint" || max < 0n) {
++       if (typeof max !== "bigint" || max <= 0n) {
+
+[Survived] StringLiteral
+builder/implementation/wallet.ts:71:28
+-         throw new RangeError("maxBalance must be a non-negative bigint");
++         throw new RangeError("");
+
+[Survived] BlockStatement
+builder/implementation/wallet.ts:70:46
+-       if (typeof max !== "bigint" || max < 0n) {
+-         throw new RangeError("maxBalance must be a non-negative bigint");
+-       }
++       if (typeof max !== "bigint" || max < 0n) {}
+
+[Survived] LogicalOperator
+builder/implementation/wallet.ts:73:9
+-       if (typeof initial !== "bigint" || initial < 0n) {
++       if (typeof initial !== "bigint" && initial < 0n) {
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:73:40
+-       if (typeof initial !== "bigint" || initial < 0n) {
++       if (typeof initial !== "bigint" || false) {
+
+[Survived] StringLiteral
+builder/implementation/wallet.ts:74:28
+-         throw new RangeError("initialBalance must be a non-negative bigint");
++         throw new RangeError("");
+
+[Survived] BlockStatement
+builder/implementation/wallet.ts:73:54
+-       if (typeof initial !== "bigint" || initial < 0n) {
+-         throw new RangeError("initialBalance must be a non-negative bigint");
+-       }
++       if (typeof initial !== "bigint" || initial < 0n) {}
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:76:9
+-       if (initial > max) {
++       if (false) {
+
+[Survived] EqualityOperator
+builder/implementation/wallet.ts:76:9
+-       if (initial > max) {
++       if (initial >= max) {
+
+[Survived] BlockStatement
+builder/implementation/wallet.ts:76:24
+-       if (initial > max) {
+-         throw new RangeError("initialBalance must not exceed maxBalance");
+-       }
++       if (initial > max) {}
+
+[Survived] BlockStatement
+builder/implementation/wallet.ts:89:28
+-     get maxBalance(): bigint {
+-       return this.#maxBalance;
+-     }
++     get maxBalance(): bigint {}
+
+[Survived] StringLiteral
+builder/implementation/wallet.ts:77:28
+-         throw new RangeError("initialBalance must not exceed maxBalance");
++         throw new RangeError("");
+
+[Survived] ConditionalExpression
+builder/implementation/wallet.ts:115:9
+-       if (value === null) return this.#reject("INVALID_AMOUNT");
++       if (false) return this.#reject("INVALID_AMOUNT");
+
+[Survived] StringLiteral
+builder/implementation/wallet.ts:115:45
+-       if (value === null) return this.#reject("INVALID_AMOUNT");
++       if (value === null) return this.#reject("");
+
+Ran 1.00 tests per mutant on average.
+-----------|------------------|----------|-----------|------------|----------|----------|
+           | % Mutation score |          |           |            |          |          |
+File       |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+-----------|--------|---------|----------|-----------|------------|----------|----------|
+All files  |  75.00 |   75.00 |       66 |         0 |         22 |        0 |        0 |
+ wallet.ts |  75.00 |   75.00 |       66 |         0 |         22 |        0 |        0 |
+-----------|--------|---------|----------|-----------|------------|----------|----------|
+[32m09:24:30 (5526) INFO JsonReporter[39m Your report can be found at: file:///private/tmp/claude-501/-Users-dmitrystepanov-Documents-Projects-bspec-experiments-wallet-claude/d845ec99-1aa1-460b-a562-522e009f5c2b/scratchpad/mutws/proj/reports/builder/mutation-report.json
+[32m09:24:30 (5526) INFO MutationTestExecutor[39m Done in 3 seconds.
