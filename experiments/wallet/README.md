@@ -31,3 +31,12 @@ Use the initial roles and run template in [`agents/`](../../agents/), preserving
 The experiment is useful if it exposes where behavior is ambiguous, produces reproducible challenges, and helps compare representations. Producing a wallet implementation by itself is not success; ordinary tools can already do that.
 
 No implementation or BSpec syntax has been selected yet.
+
+## Agent-system setups
+
+The first two runnable adapters are intentionally thin. Both use this experiment definition and the shared prompts; their platform-specific files only explain how to start an isolated role.
+
+- [`codex/`](codex/) — Codex CLI or Codex app setup using `AGENTS.md`.
+- [`claude/`](claude/) — Claude Code setup using `CLAUDE.md`.
+
+Run builder and adversary in separate fresh sessions. For the strongest initial comparison, use different systems for the two roles, then reverse them in a second run.
