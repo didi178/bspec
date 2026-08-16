@@ -1,0 +1,39 @@
+
+=== environment ===
+python: 3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]
+gil enabled: True
+MAX_BALANCE: 9223372036854775807 == 2**63-1
+
+=== P1: hostile int subclass with overridden __gt__ ===
+deposit(Sneaky(-100)) -> outcome=accepted balance=-100
+wallet.balance() = -100   NEGATIVE=True
+withdraw(Sneaky(-1000)) on balance 50 -> outcome=accepted balance=1050
+
+=== P2: int subclass that re-enters the wallet during validation (deadlock) ===
+DEADLOCK: deposit() hung for >2s holding a non-reentrant Lock
+
+=== P3: module-level MAX_BALANCE is public and rebindable ===
+MAX_BALANCE is exported and writable: True
+note: rebinding it does not affect already-constructed wallets' data, but does change the cap for all subsequent deposits process-wide
+
+=== P4: private state is reachable and unvalidated ===
+before: 10
+after direct _balance write: -999 (no encapsulation guard)
+
+=== P5: repeated operations -- idempotency question ===
+two identical deposit(100) calls -> accepted/accepted, balance=200 (applied twice; no idempotency key exists)
+
+=== P6: Outcome is a str-Enum -- equality with bare strings ===
+r.outcome == 'accepted': True
+r.outcome is Outcome.ACCEPTED: True
+
+=== P7: resource behaviour on absurdly large integers ===
+deposit(10**1_000_000) -> overflow in 0.03 ms
+
+=== P8: assert stripped under -O ===
+running with -O: False
+(_valid_amount already guarantees int, so the assert is redundant either way)
+
+=== P9: no persistence, no authorization, no currency, no identity ===
+Wallet public surface: ['balance', 'deposit', 'withdraw']
+constructor signature: Wallet() -- no initial balance, no owner, no currency, no id

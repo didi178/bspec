@@ -1,0 +1,44 @@
+test_negative_deposit_cannot_drain (test_adversary.C1NonNegative.test_negative_deposit_cannot_drain)
+A negative deposit is a disguised withdrawal; must not reach C1. ... ok
+test_negative_withdraw_cannot_inflate (test_adversary.C1NonNegative.test_negative_withdraw_cannot_inflate) ... ok
+test_overdraw_by_one_unit (test_adversary.C1NonNegative.test_overdraw_by_one_unit) ... ok
+test_repeated_full_withdrawals (test_adversary.C1NonNegative.test_repeated_full_withdrawals) ... ok
+test_withdraw_exact_balance_reaches_zero (test_adversary.C1NonNegative.test_withdraw_exact_balance_reaches_zero) ... ok
+test_withdraw_from_empty (test_adversary.C1NonNegative.test_withdraw_from_empty) ... ok
+test_deposit_exact (test_adversary.C2C3Exactness.test_deposit_exact) ... ok
+test_order_independence (test_adversary.C2C3Exactness.test_order_independence)
+Same multiset of deposits, different orders -> same balance (C7). ... ok
+test_withdraw_exact (test_adversary.C2C3Exactness.test_withdraw_exact) ... ok
+test_balance_query_is_pure (test_adversary.C4RejectionPurity.test_balance_query_is_pure) ... ok
+test_insufficient_funds_leaves_state_untouched (test_adversary.C4RejectionPurity.test_insufficient_funds_leaves_state_untouched) ... ok
+test_overflow_leaves_state_untouched (test_adversary.C4RejectionPurity.test_overflow_leaves_state_untouched) ... ok
+test_rejected_deposits_leave_state_untouched (test_adversary.C4RejectionPurity.test_rejected_deposits_leave_state_untouched) ... ok
+test_rejected_withdrawals_leave_state_untouched (test_adversary.C4RejectionPurity.test_rejected_withdrawals_leave_state_untouched) ... ok
+test_result_is_immutable (test_adversary.C4RejectionPurity.test_result_is_immutable) ... ok
+test_2_53_plus_1_survives_exactly (test_adversary.C5ExplicitOutcomes.test_2_53_plus_1_survives_exactly)
+Falsifies C7 if any float ever touches the value. ... ok
+test_every_input_returns_a_result_never_raises (test_adversary.C5ExplicitOutcomes.test_every_input_returns_a_result_never_raises) ... ok
+test_extremely_large_amounts (test_adversary.C5ExplicitOutcomes.test_extremely_large_amounts) ... ok
+test_long_run_no_drift (test_adversary.C5ExplicitOutcomes.test_long_run_no_drift) ... ok
+test_outcomes_are_distinguishable (test_adversary.C5ExplicitOutcomes.test_outcomes_are_distinguishable)
+Different rejection reasons must not collapse into one outcome. ... ok
+test_repeated_identical_operations_accumulate (test_adversary.C5ExplicitOutcomes.test_repeated_identical_operations_accumulate) ... ok
+test_zero_has_an_explicit_outcome (test_adversary.C5ExplicitOutcomes.test_zero_has_an_explicit_outcome) ... ok
+test_boundary_deposit_exactly_to_cap (test_adversary.C6C7Arithmetic.test_boundary_deposit_exactly_to_cap) ... ok
+test_fractional_amounts_are_not_silently_rounded (test_adversary.C6C7Arithmetic.test_fractional_amounts_are_not_silently_rounded)
+0.005 must be rejected or kept exactly -- never rounded away. ... ok
+test_no_float_accumulation_error (test_adversary.C6C7Arithmetic.test_no_float_accumulation_error) ... ok
+test_overflow_by_accumulation (test_adversary.C6C7Arithmetic.test_overflow_by_accumulation)
+Individually-valid deposits whose sum exceeds the cap. ... ok
+test_overflow_is_explicit_not_wrapped (test_adversary.C6C7Arithmetic.test_overflow_is_explicit_not_wrapped) ... ok
+test_concurrent_deposits_lose_no_updates (test_adversary.Concurrency.test_concurrent_deposits_lose_no_updates) ... ok
+test_concurrent_withdrawals_never_overdraw (test_adversary.Concurrency.test_concurrent_withdrawals_never_overdraw) ... ok
+test_mixed_concurrent_ops_preserve_invariant_and_conservation (test_adversary.Concurrency.test_mixed_concurrent_ops_preserve_invariant_and_conservation) ... ok
+test_many_wallets (test_adversary.Isolation.test_many_wallets) ... ok
+test_wallets_are_independent (test_adversary.Isolation.test_wallets_are_independent) ... ok
+test_random_sequences_match_reference (test_adversary.ModelBasedProperty.test_random_sequences_match_reference) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.065s
+
+OK
