@@ -13,9 +13,11 @@ Use this checklist after both roles finish. The coordinator preserves evidence a
 
 - [ ] Builder used no current-run adversary material.
 - [ ] Adversary strategy was saved before implementation inspection.
-- [ ] Adversary received the sanitized `handoff/implementation/`, not the full builder directory.
+- [ ] Adversary received `handoff/implementation/` and `handoff/assumptions.md`, not the full builder directory.
+- [ ] Handoff implementation and assumptions match the builder artifacts by content hash.
 - [ ] Builder rationale and tests remained hidden until initial findings were saved.
 - [ ] Reveal was explicitly approved and initial artifacts were not overwritten.
+- [ ] Both role systems were verified from `run-record.md` before any correlation or independence analysis.
 - [ ] Any violation or uncertain ordering is recorded as a protocol deviation.
 
 ## Evidence
@@ -24,6 +26,7 @@ Use this checklist after both roles finish. The coordinator preserves evidence a
 - [ ] Adversary findings include reproduction steps and classifications.
 - [ ] Claims of “no defect found” are scoped and do not claim proof.
 - [ ] Specification gaps and implementation defects are kept distinct.
+- [ ] Findings distinguish undeclared behavior from behavior declared in handoff assumptions.
 - [ ] Post-reveal corrections are additive and traceable to initial findings.
 - [ ] Optional analyses such as mutation testing state their method and limits.
 

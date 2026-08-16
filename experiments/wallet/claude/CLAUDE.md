@@ -24,6 +24,8 @@ You are participating in a controlled BSpec experiment. Do not begin until the u
 ## Adversary isolation
 
 - Before reading the implementation, builder rationale, or builder tests, derive a strategy solely from `../README.md` and save it to `../runs/<run-id>/adversary/strategy.md`.
-- After saving the strategy, inspect only `../runs/<run-id>/handoff/implementation/`. Stop if it is missing.
+- After saving the strategy, inspect only `../runs/<run-id>/handoff/implementation/` and `../runs/<run-id>/handoff/assumptions.md`. Stop if either is missing.
+- Treat handoff assumptions as declared behavior choices to verify, not as proof that the implementation satisfies them.
+- In pre-reveal findings, distinguish behavior absent from the implementation package from a choice explicitly declared in handoff assumptions.
 - Do not inspect builder rationale or tests until the user explicitly reveals them.
 - Never modify the builder's implementation; put adversarial tests and findings under the adversary directory.

@@ -41,17 +41,23 @@ case "$action" in
   prepare-handoff)
     builder_dir="$run_dir/builder/implementation"
     handoff_dir="$run_dir/handoff/implementation"
+    assumptions_file="$run_dir/builder/assumptions.md"
     if [[ ! -d "$builder_dir" ]] || [[ -z "$(find "$builder_dir" -mindepth 1 -maxdepth 1 -print -quit)" ]]; then
       echo "Builder implementation is missing or empty: $builder_dir" >&2
       exit 1
     fi
-    if [[ -e "$handoff_dir" ]]; then
-      echo "Handoff already exists; refusing to overwrite: $handoff_dir" >&2
+    if [[ ! -s "$assumptions_file" ]]; then
+      echo "Builder assumptions are missing or empty: $assumptions_file" >&2
+      exit 1
+    fi
+    if [[ -e "$handoff_dir" ]] || [[ -e "$run_dir/handoff/assumptions.md" ]]; then
+      echo "Handoff already exists; refusing to overwrite: $run_dir/handoff" >&2
       exit 1
     fi
     mkdir -p "$handoff_dir"
     cp -R "$builder_dir"/. "$handoff_dir"/
-    echo "Prepared sanitized handoff at $handoff_dir"
+    cp "$assumptions_file" "$run_dir/handoff/assumptions.md"
+    echo "Prepared implementation and declared assumptions at $run_dir/handoff"
     ;;
 
   verify)
